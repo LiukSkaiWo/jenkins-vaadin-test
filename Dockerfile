@@ -1,4 +1,5 @@
-FROM eclipse-temurin:17-jre
-COPY target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+FROM tomcat:latest
+
+COPY /var/jenkins_home/workspace/Vaadin-Docker/jenkins-vaadin-test/target/flowcrmtutorial-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
+
+CMD [“catalina.sh”, “run”]
